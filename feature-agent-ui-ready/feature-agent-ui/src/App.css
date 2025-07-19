@@ -140,3 +140,67 @@ body {
   border-radius: 6px;
   align-self: flex-end;
 }
+.chat-box {
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.msg {
+  margin-bottom: 0.5rem;
+}
+
+.msg.user {
+  text-align: right;
+  color: #00c;
+}
+
+.msg.bot {
+  text-align: left;
+  color: #0a0;
+}
+
+.msg.bot a {
+  color: #fff;
+  background-color: #007bff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.chat-box {
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.msg {
+  margin-bottom: 0.5rem;
+}
+
+.msg.user {
+  text-align: right;
+  color: #00c;
+}
+
+.msg.bot {
+  text-align: left;
+  color: #0a0;
+}
+
+.msg.bot a {
+  color: #fff;
+  background-color: #007bff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.msg.bot a {
+  color: white;
+  background: #4CAF50;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 6px;
+}

@@ -1,5 +1,5 @@
-// App.jsx
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown'; // 👈 Add this
 import './App.css';
 
 function App() {
@@ -11,18 +11,41 @@ function App() {
 
   const handleSend = async () => {
     if (!input.trim()) return;
+
     const userMessage = { from: 'user', text: input };
     setMessages((prev) => [...prev, userMessage]);
-    setInput('');
 
-    // Call your backend here (mocked below)
-    const res = await fetch('http://localhost:5000/generate-feature', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ business: input, implementation: '', quality: '' }),
-    });
-    const data = await res.json();
-    setMessages((prev) => [...prev, { from: 'bot', text: `✅ Feature saved at: ${data.path}` }]);
+    try {
+      const res = await fetch('http://localhost:5000/generate-feature', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          business: input,
+          implementation: 'To be defined...',
+          quality: 'To be verified...',
+        }),
+      });
+
+      const data = await res.json();
+
+      // 👇 fetch .md file content
+      const fileRes = await fetch(`${data.download}`);
+      const markdown = await fileRes.text();
+
+      const botMessage = {
+        from: 'bot',
+        text: `✅ Feature saved! [📥 Download feature.md](${data.download})`,
+      };
+
+      setMessages((prev) => [...prev, botMessage]);
+      setInput('');
+    } catch (err) {
+      console.error(err);
+      setMessages((prev) => [
+        ...prev,
+        { from: 'bot', text: '❌ Failed to generate feature file.' },
+      ]);
+    }
   };
 
   return (
@@ -42,8 +65,14 @@ function App() {
           </div>
           <div className="chat-body">
             {messages.map((msg, i) => (
-              <div key={i} className={`msg ${msg.from}`}>{msg.text}</div>
-            ))}
+    <div key={i} className={`msg ${msg.from}`}>
+      {msg.from === 'bot' ? (
+        <ReactMarkdown>{msg.text}</ReactMarkdown>
+      ) : (
+        <span>{msg.text}</span>
+      )}
+  </div>
+))}
           </div>
           <div className="chat-input">
             <input
