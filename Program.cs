@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Net.Http.Headers;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
@@ -63,7 +64,7 @@ app.MapPost("/generate-feature", async (FeatureRequest request) =>
     var filePath = Path.Combine("wwwroot", "downloads", fileName);
 
     Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
-    await File.WriteAllTextAsync(filePath, markdown);
+    await File.WriteAllTextAsync(filePath, markdown, Encoding.UTF8);
 
     var downloadUrl = $"http://localhost:5000/downloads/{fileName}";
     return Results.Ok(new { message = "Markdown generated", Download = downloadUrl });

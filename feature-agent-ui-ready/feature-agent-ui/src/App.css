@@ -1,46 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-/* App.css */
+/* Base */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -48,6 +6,7 @@ body {
   color: #fff;
 }
 
+/* Container do Botão do Robô */
 .container {
   position: fixed;
   bottom: 20px;
@@ -55,16 +14,18 @@ body {
   z-index: 999;
 }
 
+/* Botão com ícone do robô */
 .bot-button {
   background-color: #3a3d41;
   border: none;
-  color: white;
-  font-size: 2rem;
   border-radius: 50%;
   width: 60px;
   height: 60px;
   cursor: pointer;
   box-shadow: 0 0 10px #00ffdd60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.2s ease;
 }
 
@@ -72,6 +33,13 @@ body {
   background-color: #505357;
 }
 
+.bot-button img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Caixa de Chat */
 .chat-box {
   width: 360px;
   background-color: #252526;
@@ -80,8 +48,10 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  max-height: 70vh;
 }
 
+/* Cabeçalho do Chat */
 .chat-header {
   background-color: #333;
   padding: 12px;
@@ -91,16 +61,49 @@ body {
   align-items: center;
 }
 
+/* Corpo do Chat */
 .chat-body {
   flex-grow: 1;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 300px;
   overflow-y: auto;
 }
 
+/* Mensagens */
+.msg {
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  border-radius: 6px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background-color: #007acc;
+  color: white;
+}
+
+.msg.bot {
+  align-self: flex-start;
+  background-color: #3c3c3c;
+  color: white;
+}
+
+.msg.bot a {
+  color: white;
+  background: #4CAF50;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+/* Campo de Entrada */
 .chat-input {
   display: flex;
   padding: 12px;
@@ -125,82 +128,4 @@ body {
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.msg.bot {
-  background-color: #3c3c3c;
-  padding: 8px;
-  border-radius: 6px;
-  align-self: flex-start;
-}
-
-.msg.user {
-  background-color: #007acc;
-  padding: 8px;
-  border-radius: 6px;
-  align-self: flex-end;
-}
-.chat-box {
-  padding: 1rem;
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-.msg {
-  margin-bottom: 0.5rem;
-}
-
-.msg.user {
-  text-align: right;
-  color: #00c;
-}
-
-.msg.bot {
-  text-align: left;
-  color: #0a0;
-}
-
-.msg.bot a {
-  color: #fff;
-  background-color: #007bff;
-  padding: 6px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.chat-box {
-  padding: 1rem;
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-.msg {
-  margin-bottom: 0.5rem;
-}
-
-.msg.user {
-  text-align: right;
-  color: #00c;
-}
-
-.msg.bot {
-  text-align: left;
-  color: #0a0;
-}
-
-.msg.bot a {
-  color: #fff;
-  background-color: #007bff;
-  padding: 6px 12px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.msg.bot a {
-  color: white;
-  background: #4CAF50;
-  padding: 6px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 6px;
 }

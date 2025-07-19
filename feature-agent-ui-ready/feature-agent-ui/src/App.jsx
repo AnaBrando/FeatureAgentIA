@@ -75,13 +75,7 @@ function App() {
 ))}
           </div>
           <div className="chat-input">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Type your business context..."
-            />
+            <input type="file" onChange={(e) => setFile(e.target.files[0])} />
             <button onClick={handleSend}>Send</button>
           </div>
         </div>
