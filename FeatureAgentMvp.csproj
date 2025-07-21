@@ -16,7 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\downloads\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\downloads\feature_20250719230725.md" />
   </ItemGroup>
 
 </Project>

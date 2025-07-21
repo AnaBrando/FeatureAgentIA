@@ -1,0 +1,18 @@
+Subject: Application – Senior Backend Engineer | .NET + AWS
+
+Hi [Recruiter’s Name],
+
+I came across your post on LinkedIn and was immediately interested in the [Job Title] role.
+
+With over 6 years of experience in backend development (C#/.NET), building scalable APIs and cloud-native applications with AWS (Lambda, API Gateway, S3, Terraform), I believe I could contribute meaningfully to your team.
+
+I’ve worked with companies in the US, Europe, and Brazil, including financial and investment domains — always focused on delivering clean, maintainable, and business-driven solutions.
+
+I’ve attached my resume for your review and would love the opportunity to discuss how I could be a good fit for your current needs.
+
+Looking forward to hearing from you.
+
+Best regards,
+Ana Paula Chaves
+[LinkedIn] | [GitHub] | Location: GMT-3 | Open to Remote
+anapchavesweb@gmail.com
